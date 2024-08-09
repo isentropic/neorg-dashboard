@@ -14,4 +14,6 @@ This script watches your norg file for changes and live-reloads the webpage.
 4. Exit julia and run `julia -e 'using NorgDashboard; watch_norg("specs.norg")'`
 
 The content of specs.norg or anyother file should now be live updated in your browser
+# Screenshot
+![image]("./screenshot.png")
 
