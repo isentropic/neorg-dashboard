@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Live-Server Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="/css/master.css"> -->
+  </head>
+  <body>
+    <div class="container">
+    <div class="norg">
+    <section id='section-h1-your-quick-neorg-guide'>
+<h1 id='h1-your-quick-neorg-guide'>Your Quick Neorg Guide</h1>
+<p>  This is a cheatsheet that quickly lets you get a grip on the Norg syntax.  It is by no means exhaustive, but quickly gets you up to speed.</p><p>  <b>Press <code>gO</code> for a Table of Contents</b>.</p>
+</section>
+<section id='section-h1-structure'>
+<h1 id='h1-structure'>Structure</h1>
+
+</section>
+<section id='section-h2-headings'>
+<h2 id='h2-headings'>Headings</h2>
+
+</section>
+<p>   You&apos;ve already seen them in action in this guide.</p><pre>
+    <code class='language-norg'>
+        
+   * Heading 1
+   ** Heading 2
+   *** Heading 3
+   **** And so on...
+
+   
+    </code>
+</pre>
+<p>   Norg supports infinite heading levels, but you&apos;ll find that Neorg caps out at six.   You can still go higher, but the parser will treat it as if it were a level six heading.</p><section id='section-h2-reverse-headings'>
+<h2 id='h2-reverse-headings'>Reverse Headings</h2>
+
+</section>
+<p>   Need to go back a level? <code>---</code> takes you back a single level, while <code>===</code> closes all headings.</p><pre>
+    <code class='language-norg'>
+        
+   * Heading 1
+   ** Heading 2
+      Part of heading 2.
+      ---
+     Part of heading 1.
+
+   *** Heading 3
+   **** Heading 4
+        Part of heading 4.
+        ===
+
+   Not part of any heading.
+
+   
+    </code>
+</pre>
+<section id='section-h2-lists'>
+<h2 id='h2-lists'>Lists</h2>
+
+</section>
+<section id='section-h3-unordered-lists'>
+<h3 id='h3-unordered-lists'>Unordered Lists</h3>
+
+</section>
+<pre>
+    <code class='language-norg'>
+        
+    - List item.
+    -- Nested list item
+    -- Also nested.
+    - Next list item.
+
+    
+    </code>
+</pre>
+<section id='section-h3-ordered-lists'>
+<h3 id='h3-ordered-lists'>Ordered Lists</h3>
+
+</section>
+<pre>
+    <code class='language-norg'>
+        
+    ~ List item.
+    ~~ Nested list item.
+    ~~ Also nested.
+    ~ Next list item.
+
+    
+    </code>
+</pre>
+<section id='section-h2-code-blocks'>
+<h2 id='h2-code-blocks'>Code Blocks</h2>
+
+</section>
+<p>   Run <code>:Neorg toggle-concealer</code> to see the raw syntax.</p><pre>
+    <code class='language-plaintext'>
+           This is literally an empty code block.
+   
+    </code>
+</pre>
+<pre>
+    <code class='language-lua'>
+           print(&quot;If you have the lua treesitter parser installed, this will be highlighted as lua.&quot;)
+   print(&quot;If not, run `:TSInstall lua`.&quot;)
+   
+    </code>
+</pre>
+<section id='section-h1-inline-markup'>
+<h1 id='h1-inline-markup'>Inline Markup</h1>
+
+</section>
+<section id='section-h2-styling'>
+<h2 id='h2-styling'>Styling</h2>
+
+</section>
+<p>   To see the syntax raw, run <code>:setlocal conceallevel=0</code>.   Set it back to <code>2</code> later for a more concise reading experience :)</p><pre>
+    <code class='language-norg'>
+        
+   This is *bold*.
+   This is /italic/.
+   This is _underline_.
+   This is -strikethrough-.
+   This is a spoiler: !org-mode is a bozo!, to see the content you either enter insert mode on this line (good luck) or toggle the concealer off.
+   This is a `verbatim object, you can&apos;t put *markup* in here!`.
+
+   %This is a comment, and you never see it in your exported output.%
+
+   This is _underline, /italic/ and *-strikethrough bold-*_. Mix and match how you see fit, just make sure
+   you&apos;re not trying to put markup inside of a verbatim object!
+
+   
+    </code>
+</pre>
+<p>   For the mathematical nerds:</p><pre>
+    <code class='language-norg'>
+        
+   This is ^superscript^ (it won&apos;t render properly in Neovim).
+   This is ,subscript,   (same as above).
+   This is inline maths: $f(x) = supports \\LaTeX$, but beware! You have to escape backslashes like in the example.
+   Because of this, you should always use the above syntax for very simple things, and the &quot;rigid&quot;
+   syntax for more complicated expressions: $|\int_0^t d(\ln{S}) = ...|$ (notice the `\|` and the use of single backslashes).
+
+   
+    </code>
+</pre>
+<section id='section-h3-styling-with-a-pipe'>
+<h3 id='h3-styling-with-a-pipe'>Styling with a Pipe</h3>
+
+</section>
+<p>    As shown in the maths example above, you can use the pipe <code>|</code> to allow arbitrary whitespace within the    markup. You also don&apos;t have to escape backslashes!</p><pre>
+    <code class='language-norg'>
+        
+    /   this is not allowed  /
+    /|  but this is fine!!   |/
+
+    
+    </code>
+</pre>
+<section id='section-h2-links'>
+<h2 id='h2-links'>Links</h2>
+
+</section>
+<p>   <b>NOTE: attempting to hit enter on the links will not work.</b></p><section id='section-h3-links-to-urls'>
+<h3 id='h3-links-to-urls'>Links to URLs</h3>
+
+</section>
+<pre>
+    <code class='language-norg'>
+        
+    {https://github.com/nvim-neorg/neorg}
+    {file:///home/vhyrro/top-secret.txt} - as long as your OS supports your URI (`file://`) it&apos;ll work in Neorg
+
+    
+    </code>
+</pre>
+<section id='section-h3-links-to-objects'>
+<h3 id='h3-links-to-objects'>Links to Objects</h3>
+
+</section>
+<p>    To link to an object, you use its prefix and its name. The name part is    <b>only word and punctuation sensistive</b>. Case and whitespace are ignored.</p><pre>
+    <code class='language-norg'>
+        
+    {*** styling, but extended} - valid
+    {*** styling,butextended} - valid
+    {*** styling but extended} - invalid, no `,` punctuation
+
+    
+    </code>
+</pre>
+<section id='section-h3-links-to-non-norg-files'>
+<h3 id='h3-links-to-non-norg-files'>Links to non-norg Files</h3>
+
+</section>
+<pre>
+    <code class='language-norg'>
+        
+    {/ myfile.txt}
+    {/ myfile.txt:43} - line 43 of `myfile.txt`
+
+    
+    </code>
+</pre>
+<section id='section-h3-links-with-descriptions'>
+<h3 id='h3-links-with-descriptions'>Links with Descriptions</h3>
+
+</section>
+<pre>
+    <code class='language-norg'>
+        
+    {* some heading}[my custom description]
+
+    
+    </code>
+</pre>
+<section id='section-h3-links-to-anything'>
+<h3 id='h3-links-to-anything'>Links to Anything</h3>
+
+</section>
+<p>    Don&apos;t care about what object type you&apos;re linking to?    Just use the <code>#</code> character.</p><pre>
+    <code class='language-norg'>
+        
+    {# anything with this title}
+
+    
+    </code>
+</pre>
+<section id='section-h3-links-across-files'>
+<h3 id='h3-links-across-files'>Links across Files</h3>
+
+</section>
+<p>    Take your link but prefix it with <code>:filename:</code> (without the <code>.norg</code> extension).</p><pre>
+    <code class='language-norg'>
+        
+    {:dir/file:* Heading in that file}
+    {:$/index.norg:* Heading in that file} - `$` signifies the path of the current workspace
+    {:$notes/index.norg:* Heading in that file} - you can also link to other workspaces
+
+    
+    </code>
+</pre>
+<section id='section-h2-anchors'>
+<h2 id='h2-anchors'>Anchors</h2>
+
+</section>
+<p>   It&apos;s like links, but the syntax is reversed. Anchors can save you from writing the same thing countless times.</p><pre>
+    <code class='language-norg'>
+        
+   This is a link to [my site]{https://very.long.link.to.my.boring.site}. `&lt;- Works just like a normal link with a description`
+
+   Be sure to reference [my site] if you&apos;re interested! `&lt;- Takes you to the correct site`
+
+   
+    </code>
+</pre>
+<p>   As long as the name inbetween the square brackets is the same you&apos;ll be linked to the correct place.</p><section id='section-h1-tasks'>
+<h1 id='h1-tasks'>Tasks</h1>
+
+</section>
+<p>  You can assign a task status to anything by adding a <code>( )</code>.</p><pre>
+    <code class='language-norg'>
+        
+  - ( ) Here&apos;s a classical TODO item.
+
+  * (x) Here&apos;s a heading with a done TODO state. Curious.
+
+  
+    </code>
+</pre>
+<p>  All supported states:</p><pre>
+    <code class='language-norg'>
+        
+  ( ) Undone -> not done yet
+  (x) Done -> done with that
+  (?) Needs further input
+
+  (!) Urgent -> high priority task
+  (+) Recurring task with children
+
+  (-) Pending -> currently in progress
+  (=) Task put on hold
+  (_) Task cancelled (put down)
+
+  
+    </code>
+</pre>
+<div class='comment'><p>vim:tw=100:ft=norg:norl:conceallevel=2:concealcursor=nv:</p></div>
+    <section class="footnotes">
+    <ol>
+        
+    </ol>
+</section>
+
+</div>
+
+    </div>
+  </body>
+</html>
