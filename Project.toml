@@ -1,4 +1,18 @@
+name = "NorgDashboard"
+uuid = "25dc8828-f8f9-4075-854a-acb697dbaac2"
+authors = ["isentropic"]
+version = "1.0.0-DEV"
+
 [deps]
 BetterFileWatching = "c9fd44ac-77b5-486c-9482-9798bd063cc6"
 LiveServer = "16fef848-5104-11e9-1b77-fb7a48bbb589"
 Norg = "64228516-68de-4e23-8112-6940bc1970d1"
+
+[compat]
+julia = "1.6.7"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]

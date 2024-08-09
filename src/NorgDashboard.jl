@@ -1,16 +1,12 @@
-import Pkg
-Pkg.instantiate()
-using LiveServer
-using Norg
-using BetterFileWatching
+module NorgDashboard
+
+using LiveServer: serve
+using Norg: norg, HTMLTarget
+using BetterFileWatching: watch_file
 
 
-filename = "specs.norg"
 
-cd("example")
-filename = joinpath("..", filename)
-
-function export_to_html(filename)
+function export_to_html(filename, temp_dir)
     file_contents = open(filename, "r") do file
         read(file, String)  # Read the entire file content as a String
     end
@@ -31,21 +27,30 @@ function export_to_html(filename)
       </body>
     </html>
     """
-    open("index.html", "w") do io
+    open(joinpath(temp_dir, "index.html"), "w") do io
         write(io, index_html)
     end
 end
 
-export_to_html(filename)
-watch_task = @async watch_file(filename) do event
-    @info "Something changed!"
-    @info event
-    try
-        export_to_html(filename)
-    catch e
-        @info "couldn't export"
+
+# Write your package code here.
+#
+function watch_norg(filename)
+    filename = abspath(filename)
+    temp_dir = mktempdir()
+    cd(temp_dir)
+
+    export_to_html(filename, temp_dir)
+    watch_task = @async watch_file(filename) do event
+        @info "File changed!"
+        try
+            export_to_html(filename, temp_dir)
+        catch e
+            @info "couldn't export to html"
+        end
     end
+    serve(launch_browser=true)
 end
 
-serve(launch_browser=true)
-
+export watch_norg
+end
