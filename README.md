@@ -7,6 +7,11 @@ start page (new tab) in your browser of choice.
 
 This script watches your norg file for changes and live-reloads the webpage.
 
-# Running
-1. Run `julia --project serve.jl` in order to start the server
-2. Update the file `specs.norg` and see live updates
+# Installation and running
+1. Install [julia](julialang.org)
+2. Start julia
+3. Install this package in julia via `]add https://github.com/isentropic/neorg-dashboard`
+4. Exit julia and run `julia -e 'using NorgDashboard; watch_norg("specs.norg")'`
+
+The content of specs.norg or anyother file should now be live updated in your browser
+
