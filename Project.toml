@@ -1,0 +1,4 @@
+[deps]
+BetterFileWatching = "c9fd44ac-77b5-486c-9482-9798bd063cc6"
+LiveServer = "16fef848-5104-11e9-1b77-fb7a48bbb589"
+Norg = "64228516-68de-4e23-8112-6940bc1970d1"
