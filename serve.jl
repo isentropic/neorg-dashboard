@@ -1,3 +1,5 @@
+import Pkg
+Pkg.instantiate()
 using LiveServer
 using Norg
 using BetterFileWatching
