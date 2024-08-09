@@ -1,5 +1,4 @@
-<img width="1234" alt="image" src="https://github.com/user-attachments/assets/1124c118-7eb5-46b6-b91b-65a2353e1c70"># What this is?
-
+# What's up?
 Say you have a norg file full of todos or some other information
 (currently watching only specs.norg), you can live watch the rendered webpage
 (html) of the norg file in your browser. This is meant to act as a possible
