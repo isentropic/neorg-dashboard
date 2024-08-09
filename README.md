@@ -1,4 +1,4 @@
-# What this is?
+<img width="1234" alt="image" src="https://github.com/user-attachments/assets/1124c118-7eb5-46b6-b91b-65a2353e1c70"># What this is?
 
 Say you have a norg file full of todos or some other information
 (currently watching only specs.norg), you can live watch the rendered webpage
@@ -15,5 +15,5 @@ This script watches your norg file for changes and live-reloads the webpage.
 
 The content of specs.norg or anyother file should now be live updated in your browser
 # Screenshot
-![image]("./screenshot.png")
+![Screenshot](screenshot.png?raw=true "Screenshot")
 
