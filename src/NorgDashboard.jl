@@ -22,7 +22,7 @@ function export_to_html(filename, temp_dir)
 
         <style>
         h1 {
-            font-size: 1em;
+            font-size: 1.3em;
             color: #007bff;
             background-color: rgba(0, 123, 255, 0.1);
             padding: 0.5em;
@@ -34,7 +34,7 @@ function export_to_html(filename, temp_dir)
         }
 
         h2 {
-            font-size: 1.4em;
+            font-size: 1.2em;
             background-color: rgba(108, 117, 125, 0.1);
             padding: 0.5em;
             font-weight: semi-bold;
@@ -44,7 +44,7 @@ function export_to_html(filename, temp_dir)
         }
 
         h3 {
-            font-size: 1.2em;
+            font-size: 1.1em;
             padding: 0.5em;
             font-weight: normal;
             margin-top: 0.5em;
